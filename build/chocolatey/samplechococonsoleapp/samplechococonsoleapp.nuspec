@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>sample-choco-console-app</id>
+    <!-- Note This version will be overriden by the command line. -->
+    <version>0.0.1-beta</version>
+    <packageSourceUrl></packageSourceUrl>
+    <title>Sample Choco Console App</title>
+    <authors>345</authors>
+    <projectUrl></projectUrl>
+    <licenseUrl></licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <tags>Sample</tags>
+    <description>Sample Console Choco App</description>
+  </metadata>
+  <files>
+    <file src="..\..\..\dist\choco-src\*" target="tools"/>
+  </files>
+</package>
