@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <id>sample-choco-console-app</id>
-    <!-- Note This version will be overriden by the command line. -->
+    <id>sample-choco-console-app</id>    
     <version>0.0.1-beta</version>
-    <packageSourceUrl></packageSourceUrl>
+    <packageSourceUrl>https://nowhere/</packageSourceUrl>
     <title>Sample Choco Console App</title>
     <authors>345</authors>
-    <projectUrl></projectUrl>
-    <licenseUrl></licenseUrl>
+    <projectUrl>https://nowhere/</projectUrl>
+    <licenseUrl>https://nowhere/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <tags>Sample</tags>
     <description>Sample Console Choco App</description>
