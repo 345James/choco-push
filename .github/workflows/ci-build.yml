@@ -10,6 +10,7 @@ env:
   CHOCO_PACKAGE_OUTPUT_DIR: 'choco-package'
   # CHOCO_PACKAGE_REPO_INTERNAL: ''
   # CHOCO_PACKAGE_REPO_PUBLIC: ''
+  PUBLISHED_PROJECT_FILE: 'src/SampleChocoConsoleApp/Microsoft.SampleChocoConsoleApp.csproj'
   CHOCO_PACKAGE_REPO_FOLDER: 'chocolatey-packages'
   CHOCO_SRC_DIR: 'choco-src'
   CODE_COVERAGE_THRESHOLD: 0
@@ -54,5 +55,5 @@ jobs:
 #        run: | 
 #          find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
 #          while read f; do            
-#            choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.AIM_CHOCO_PUBLIC_REPO_TOKEN }}
+#            choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.CHOCO_PUBLIC_REPO_TOKEN }}
 #          done
