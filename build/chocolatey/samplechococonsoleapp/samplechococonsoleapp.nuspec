@@ -6,11 +6,11 @@
     <packageSourceUrl>https://nowhere/</packageSourceUrl>
     <title>Sample Choco Console App</title>
     <authors>345</authors>
-    <projectUrl>https://nowhere/</projectUrl>
-    <licenseUrl>https://nowhere/</licenseUrl>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectUrl>https://github.com/345James/choco-push</projectUrl>
+    <licenseUrl>https://github.com/345James/choco-push/blob/main/README.md</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>Sample</tags>
-    <description>Sample Console Choco App</description>
+    <description>This is a sample chocolatey app to test the push to chocolatey from a github action.</description>
   </metadata>
   <files>
     <file src="..\..\..\dist\choco-src\*" target="tools"/>
