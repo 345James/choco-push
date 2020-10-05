@@ -3,11 +3,11 @@
   <metadata>
     <id>sample-choco-console-app</id>    
     <version>0.0.2-beta</version>
-    <packageSourceUrl>https://nowhere/</packageSourceUrl>
+    <packageSourceUrl>https://github.com/345James/choco-push</packageSourceUrl>
     <title>Sample Choco Console App</title>
     <authors>345</authors>
     <projectUrl>https://github.com/345James/choco-push</projectUrl>
-    <licenseUrl>https://github.com/345James/choco-push/blob/main/README.md</licenseUrl>
+    <licenseUrl>https://github.com/345James/choco-push/blob/main/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>Sample</tags>
     <description>This is a sample chocolatey app to test the push to chocolatey from a github action.</description>
