@@ -39,19 +39,15 @@ jobs:
 
       - name: Create the Chocolatey verification file and copy the license
         shell: bash
-        run: |
-          find -maxdepth 1 -type d | 
-          while read chocodirectory
+        run: |         
+          cp ./LICENSE ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }}/LICENSE
+          verificationFile=./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }}/VERIFICATION
+          touch $verificationFile
+          find ${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }} -type f  | 
+          while read f
           do
-          
-            cp ./LICENSE ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }}/LICENSE
-            verificationFile=./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }}/VERIFICATION
-            touch $verificationFile
-            find ${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }} -type f  | 
-            while read f
-            do
-              echo $f >> $verificationFile
-            done
+            echo $f >> $verificationFile
+          done
 
       - name: Create the Chocolatey packages
         shell: bash
@@ -65,7 +61,7 @@ jobs:
           done
 
    
-      # - name: Push the Chocolatey package        
+      #- name: Push the Chocolatey package        
       #  shell: bash
       #  run: | 
       #    find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
