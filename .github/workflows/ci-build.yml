@@ -44,10 +44,10 @@ jobs:
           while read chocodirectory
           do          
             echo $chocodirectory
-            cp ./LICENSE ./${{ env.CHOCO_CONFIG_DIR }}/$chocodirectory/LICENSE
-            verificationFile=./${{ env.CHOCO_CONFIG_DIR }}/$chocodirectory/VERIFICATION
+            cp ./LICENSE $chocodirectory/LICENSE
+            verificationFile=$chocodirectory/VERIFICATION
             touch $verificationFile
-            find ./${{ env.CHOCO_CONFIG_DIR }}/$chocodirectory -type f  | 
+            find $chocodirectory -type f  | 
             while read f
             do
               echo $f >> $verificationFile
