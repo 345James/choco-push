@@ -62,10 +62,10 @@ jobs:
           done
 
    
-      # - name: Push the Chocolatey package        
-      #  shell: bash
-      #  run: | 
-      #    find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
-      #    while read f; do            
-      #      choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.CHOCO_PUBLIC_REPO_TOKEN }}
-      #    done
+       - name: Push the Chocolatey package        
+        shell: bash
+        run: | 
+          find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
+          while read f; do            
+            choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.CHOCO_PUBLIC_REPO_TOKEN }}
+          done
