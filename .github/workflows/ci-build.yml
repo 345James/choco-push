@@ -37,7 +37,7 @@ jobs:
       - name: Publish the CLI project for Chocolatey
         run: dotnet publish ${{ env.PUBLISHED_PROJECT_FILE }} -r win-x64 -o ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }} --configuration ${{ env.BUILD_TYPE }}  -p:PublishTrimmed=true
 
-      - name: Create the Chocolatey verification file and copy the license
+      - name: Create the Chocolatey verification file and copy the license file
         shell: bash
         run: |         
           cp ./LICENSE ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }}/LICENSE
@@ -46,6 +46,7 @@ jobs:
           find ${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }} -type f  | 
           while read f
           do
+            filename="$basename -- $f"
             echo $f >> $verificationFile
           done
 
@@ -61,10 +62,10 @@ jobs:
           done
 
    
-      - name: Push the Chocolatey package        
-        shell: bash
-        run: | 
-          find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
-          while read f; do            
-            choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.CHOCO_PUBLIC_REPO_TOKEN }}
-          done
+      # - name: Push the Chocolatey package        
+      #  shell: bash
+      #  run: | 
+      #    find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
+      #    while read f; do            
+      #      choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.CHOCO_PUBLIC_REPO_TOKEN }}
+      #    done

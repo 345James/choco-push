@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>sample-choco-console-app</id>    
-    <version>0.0.6-beta</version>
+    <version>0.0.7-beta</version>
     <packageSourceUrl>https://github.com/345James/choco-push</packageSourceUrl>
     <title>Sample Choco Console App</title>
     <authors>345</authors>
