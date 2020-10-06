@@ -40,7 +40,7 @@ jobs:
       - name: Create the Chocolatey verification file and copy the license
         shell: bash
         run: |
-          find ./${{ env.CHOCO_CONFIG_DIR }} -maxdepth 1 -type d | 
+          find ./${{ env.CHOCO_CONFIG_DIR }} -mindepth 1 -maxdepth 1 -type d | 
           while read chocodirectory
           do          
             echo $chocodirectory
