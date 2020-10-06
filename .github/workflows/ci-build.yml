@@ -40,18 +40,18 @@ jobs:
       - name: Create the Chocolatey verification file and copy the license
         shell: bash
         run: |
-          find ./${{ env.CHOCO_CONFIG_DIR }} -mindepth 1 -maxdepth 1 -type d | 
+          find -maxdepth 1 -type d | 
           while read chocodirectory
-          do          
-            cp ./LICENSE $chocodirectory/LICENSE
-            verificationFile=$chocodirectory/VERIFICATION
+          do
+          
+            cp ./LICENSE ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }}/LICENSE
+            verificationFile=./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }}/VERIFICATION
             touch $verificationFile
-            find $chocodirectory -type f  | 
+            find ${{ env.OUTPUT_DIR }}/${{ env.CHOCO_SRC_DIR }} -type f  | 
             while read f
             do
               echo $f >> $verificationFile
             done
-          done
 
       - name: Create the Chocolatey packages
         shell: bash
@@ -65,10 +65,10 @@ jobs:
           done
 
    
-      - name: Push the Chocolatey package        
-        shell: bash
-        run: | 
-          find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
-          while read f; do            
-            choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.CHOCO_PUBLIC_REPO_TOKEN }}
-          done
+      # - name: Push the Chocolatey package        
+      #  shell: bash
+      #  run: | 
+      #    find ./${{ env.OUTPUT_DIR }}/${{ env.CHOCO_PACKAGE_OUTPUT_DIR }}/ -name "*.nupkg" |
+      #    while read f; do            
+      #      choco push $f -s ${{ env.CHOCO_PACKAGE_REPO_PUBLIC }} -k ${{ secrets.CHOCO_PUBLIC_REPO_TOKEN }}
+      #    done
