@@ -47,7 +47,7 @@ jobs:
           while read f
           do
             filename="$basename -- $f"
-            echo $f >> $verificationFile
+            echo $filename >> $verificationFile
           done
 
       - name: Create the Chocolatey packages
